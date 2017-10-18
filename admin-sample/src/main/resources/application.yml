@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: spring admin
+  boot:
+    admin:
+      context-path: /sba    # 配置访问路径为：http://localhost:8989/sba
+      #url: http://localhost:8989
+server:
+  port: 8989
+  context-path: / #统一为访问的url加上一个前缀
+endpoints:
+  health:
+    sensitive: false
+

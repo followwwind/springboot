@@ -1,0 +1,8 @@
+#注意空格
+server:
+  port: 8080
+  context-path: /bootsample
+
+
+
+
