@@ -22,7 +22,9 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-elasticsearch</artifactId>
         </dependency>
-        <!-- java.lang.ClassNotFoundException: com.sun.jna.Native -->
+
+        <!-- Runtime, for Embedded Elasticsearch,
+            comment this if connect to external elastic search server-->
         <dependency>
             <groupId>net.java.dev.jna</groupId>
             <artifactId>jna</artifactId>

@@ -49,6 +49,13 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>2.6.1</version>
         </dependency>
+
+        <!-- spring-boot-admin -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>1.5.0</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>boot-sample</finalName>
