@@ -12,6 +12,9 @@ import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * @author wind
+ */
 @Service
 public class ArticleService implements IArticleService{
 
@@ -38,7 +41,6 @@ public class ArticleService implements IArticleService{
         Iterator<Article> iterator = searchResult.iterator();
         List<Article> articles = new ArrayList<>();
         while (iterator.hasNext()) {
-//            System.out.println(iterator.next());
             articles.add(iterator.next());
         }
         return articles;

@@ -21,6 +21,7 @@ public interface IArticleService {
 
     /**
      * 根据条件查询索引
+     * @param keyword
      * @return
      */
     List<Article> findByCondition(String keyword);

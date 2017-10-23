@@ -10,7 +10,9 @@
 		<module>boot-sample</module>
 		<module>es-sample</module>
 		<module>admin-sample</module>
-	</modules>
+        <module>webservices-sample</module>
+        <module>websocket-sample</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>springboot</name>
@@ -27,14 +29,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<main.basedir>${basedir}/../..</main.basedir>
 	</properties>
 
 	<dependencies>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
