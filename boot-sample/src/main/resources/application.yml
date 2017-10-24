@@ -15,11 +15,11 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
-  boot:
-      admin:
-        client:
-          prefer-ip: true # 解决windows下运行时无法识别主机名的问题
-        url: http://localhost:8989/sba # 向服务端注册的地址
+  #boot:
+      #admin:
+        #client:
+          #prefer-ip: true # 解决windows下运行时无法识别主机名的问题
+        #url: http://localhost:8989/sba # 向服务端注册的地址
 management:
   security:
     enabled: false  #true获取重要接口信息需要账号密码登陆

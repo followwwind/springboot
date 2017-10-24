@@ -21,7 +21,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author wind
- * http://localhost:8080/services/holidayService/holiday.wsdl
+ * http://localhost:8181/ws/countries.wsdl
+ * 发送curl请求
+ * curl --header "content-type: text/xml" -d @request.xml http://localhost:8181/ws
  */
 @SpringBootApplication
 public class SampleWebServicesApplication {
