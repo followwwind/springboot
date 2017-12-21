@@ -1,6 +1,7 @@
 #注意空格
 server:
   port: 8180
-  context-path: /bootsample
+  servlet:
+    context-path: /bootsample
 
 

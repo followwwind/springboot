@@ -7,8 +7,9 @@ spring:
       #url: http://localhost:8989
 server:
   port: 8989
-  context-path: / #统一为访问的url加上一个前缀
+  servlet:
+    context-path: / #统一为访问的url加上一个前缀
 endpoints:
-  health:
+  features:
     sensitive: false
 
