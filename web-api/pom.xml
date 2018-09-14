@@ -16,8 +16,8 @@
         <!-- ancda lib begin -->
         <dependency>
             <groupId>com.wind</groupId>
-            <artifactId>common</artifactId>
-            <version>${common.version}</version>
+            <artifactId>common-api</artifactId>
+            <version>${common-api.version}</version>
         </dependency>
         <!-- ancda lib end -->
 

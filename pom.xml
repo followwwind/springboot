@@ -7,14 +7,9 @@
 	<artifactId>springboot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<modules>
-		<module>jpa-sample</module>
-		<module>es-sample</module>
-		<module>admin-sample</module>
-        <module>webservices-sample</module>
-        <module>websocket-sample</module>
-		<module>webflux-sample</module>
-		<module>common</module>
+		<module>common-api</module>
 		<module>web-api</module>
+		<module>boot-sample</module>
 	</modules>
 	<packaging>pom</packaging>
 
@@ -72,7 +67,7 @@
 		<hessian.version>4.0.38</hessian.version>
 
 		<!-- module version common -->
-		<common.version>${project.version}</common.version>
+		<common-api.version>${project.version}</common-api.version>
 		<web-api.version>${project.version}</web-api.version>
 	</properties>
 
