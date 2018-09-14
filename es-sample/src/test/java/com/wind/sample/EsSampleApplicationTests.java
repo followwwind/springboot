@@ -1,7 +1,7 @@
 package com.wind.sample;
 
 import com.wind.sample.entity.Article;
-import com.wind.sample.service.IArticleService;
+import com.wind.sample.service.ArticleService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import java.util.List;
 public class EsSampleApplicationTests {
 
 	@Autowired
-	private IArticleService articleService;
+	private ArticleService articleService;
 
 	@Test
 	public void testSave(){

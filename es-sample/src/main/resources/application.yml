@@ -1,12 +1,72 @@
+# ===================================================================
+# Spring Boot 标准环境配置
+# ===================================================================
+
+# 内嵌服务器配置，默认使用Tomcat作为内嵌WebServer(其他可选Jetty、Undertow)
+server:
+    port: 8181 # 启动端口，默认8080
+    #servletPath: /service # 访问根路径，默认"/"
+    tomcat:
+        uri-encoding: UTF-8 # URI编码，默认"ISO-8859-1"
+        max-threads: 300
+        max-connections: 200
+        accept-count: 100
+        basedir: /data/webroot/es-service
+        accesslog:
+          enabled: true
+    servlet:
+      session:
+          timeout:
+              seconds: 1800 # 会话超时时间，默认30分钟
+          cookie:
+              http-only: true  # 开启HttpOnly防止js脚本读取cookie信息和XSS 攻击
+
+## 关闭Spring Security
+#security:
+#    basic:
+#        enabled: false
+
+# 日志相关设置
+logging:
+  config: classpath:config/log4j2.xml
+
+
+# spring相关设置
 spring:
-   data:
-      elasticsearch:
-          cluster-name: es #默认为elasticsearch
-          #cluster-nodes: 192.168.1.44:9330  #配置es节点信息，逗号分隔，如果没有指定，则启动ClientNode
-          properties:
-              path:
-                logs: ./elasticsearch/log #elasticsearch日志存储目录
-                data: ./elasticsearch/data #elasticsearch数据存储目录
+    application:
+        name: es-service
+        version: 1.0.0
+#    profiles:
+#        active: dev
+    aop:
+        proxy-target-class: true
+    jackson:
+        # 序列化日期时以timestamps输出(例如true=1413800730456, false=2014-10-20T10:26:06.604+0000)
+        serialization.write_dates_as_timestamps: true
+        # 使用自定义 date-format 需禁用 write_dates_as_timestamps 才会生效
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        serialization.fail_on_empty_beans: false
+    messages:
+        #设置国际化配置文件存放在classpath:/i18n目录下
+        basename: i18n/messages
+        #设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1
+        cache-duration:
+          seconds: 3600
+    mvc:
+        favicon:
+            enabled: false
+    data:
+        elasticsearch:
+        # 集群名
+        cluster-name: es-service
+        # 连接节点,注意在集群中通信都是9300端口，否则会报错无法连接上！,多个逗号分隔
+        cluster-nodes: localhost:9300
+        # 是否本地连接
+        local: true
+        repositories:
+            # 仓库中数据存储
+            enabled: true
 
 
 
