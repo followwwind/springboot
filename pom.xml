@@ -56,6 +56,7 @@
 		<guava.version>21.0</guava.version>
 		<joda-time.version>2.9.2</joda-time.version>
 		<jjwt.version>0.9.0</jjwt.version>
+		<thumbnailator.version>0.4.8</thumbnailator.version>
 
 		<swagger.version>2.9.0</swagger.version>
 		<xstream.version>1.4.7</xstream.version>
@@ -239,6 +240,14 @@
 				<artifactId>springfox-swagger-ui</artifactId>
 				<version>${swagger.version}</version>
 			</dependency>
+
+			<!-- thumbnailator -->
+			<dependency>
+				<groupId>net.coobird</groupId>
+				<artifactId>thumbnailator</artifactId>
+				<version>${thumbnailator.version}</version>
+			</dependency>
+
 
 			<!-- google java lib -->
 			<dependency>

@@ -1,11 +1,14 @@
 package com.wind.common.util;
 
+import net.coobird.thumbnailator.Thumbnails;
+import net.coobird.thumbnailator.name.Rename;
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.math.BigDecimal;
 import java.net.URL;
 
 /**
@@ -98,12 +101,6 @@ public class ImgUtil {
                     os = new FileOutputStream(file);
                     int index = base64.indexOf(BASE64);
                     byte[] bytes = decoder.decodeBuffer(base64.substring(index + BASE64.length() + 1));
-                    // 调整异常数据
-//                    for (int i = 0; i < bytes.length; ++i) {
-//                        if (bytes[i] < 0) {
-//                            bytes[i] += 256;
-//                        }
-//                    }
                     os.write(bytes);
                 }
             }
@@ -141,15 +138,52 @@ public class ImgUtil {
         return bytes;
     }
 
-    public static void main(String[] args) {
+    /**
+     * 图片压缩
+     * @param source
+     * @param target
+     */
+    public static void compress(String source, String target){
         try {
-            BufferedReader br = new BufferedReader(new FileReader("E:/doc/base64.txt"));
-            StringBuilder sb = new StringBuilder();
-            br.lines().forEach(sb::append);
-            decodeBase64(sb.toString(), new File("E:/doc/base64.jpeg"));
-        } catch (FileNotFoundException e) {
+            File targetFile = new File(target);
+            Thumbnails.of(source)
+                    .scale(1f).outputQuality(0.25f)
+                    .outputFormat("jpg")
+                    .toFile(targetFile);
+        } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void compress(String source, long fileSize, float quality, double size){
+        File sourceFile = new File(source);
+        long sourceSize = sourceFile.length() / 1024;
+        if(sourceSize <= fileSize){
+            return;
+        }
+
+        // 计算宽高
+        try {
+            BufferedImage bi = ImageIO.read(sourceFile);
+            int width = bi.getWidth();
+            int height = bi.getHeight();
+            int desWidth = new BigDecimal(width).multiply(new BigDecimal(size)).intValue();
+            int desHeight = new BigDecimal(height).multiply(new BigDecimal(size)).intValue();
+
+            Thumbnails.of(source).size(desWidth, desHeight)
+                    .outputQuality(quality).outputFormat("jpg").toFile(source);
+
+            compress(source, fileSize, quality, size * 0.99);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+//        compress("E:/resource/img/a.jpg", "E:/resource/img/1.jpg");
+        compress("E:/resource/img/1.jpg", 512, 0.25f, 1);
     }
 
 }
