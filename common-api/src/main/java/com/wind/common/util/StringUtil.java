@@ -11,8 +11,12 @@ import java.util.Optional;
 import java.util.StringTokenizer;
 
 /**
- * 字符串工具类
+ * @Title: StringUtil
+ * @Package com.wind.common.util
+ * @Description: 字符串工具类
  * @author wind
+ * @date 2018/9/17 18:09
+ * @version V1.0
  */
 public class StringUtil{
 

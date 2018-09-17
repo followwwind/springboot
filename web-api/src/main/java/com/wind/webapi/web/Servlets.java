@@ -14,12 +14,11 @@ import java.util.*;
 import java.util.Map.Entry;
 
 /**
- * 
- * @fileName Servlets.java
- * @package com.ancda.palmbaby.ancda.common.web
- * @description Http与Servlet工具类.
- * @author yujl@ancda.com
- * @date 2017年6月28日 下午8:20:27
+ * @Title: Servlets
+ * @Package com.wind.webapi.web
+ * @Description: Http与Servlet工具类.
+ * @author wind
+ * @date 2018/9/17 18:05
  * @version V1.0
  */
 public class Servlets {

@@ -6,11 +6,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
- * @fileName WebMvcServlet
- * @package com.ancda.palmbaby.ancda.common.web
- * @description 静态资源拦截器
- * @author huanghy
- * @date 2018-05-03 09:55:30
+ * @Title: WebMvcServlet
+ * @Package com.wind.webapi.web
+ * @Description: 静态资源拦截器
+ * @author wind
+ * @date 2018/9/17 18:05
  * @version V1.0
  */
 @Configuration

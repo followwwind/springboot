@@ -8,12 +8,11 @@ import javax.annotation.Resource;
 import java.util.Locale;
 
 /**
- * 
- * @fileName LocaleMessageSourceUtil.java
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description 国际化消息Util
- * @author yujl@ancda.com
- * @date 2017年6月23日 上午11:07:27
+ * @Title: LocaleMessageSourceUtil
+ * @Package com.wind.webapi.util
+ * @Description: 国际化消息Util
+ * @author wind
+ * @date 2018/9/17 17:59
  * @version V1.0
  */
 @Component

@@ -6,11 +6,11 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
- * @fileName PageQuery
- * @package com.ancda.palmbaby.ancda.common.persistence
- * @description 分页查询参数对象封装类
- * @author yujl@ancda.com
- * @date 2018-06-11 17:28:59
+ * @Title: PageQuery
+ * @Package com.wind.webapi.persistence
+ * @Description: 分页查询参数对象封装类
+ * @author wind
+ * @date 2018/9/17 17:44
  * @version V1.0
  */
 public class PageQuery implements Serializable {

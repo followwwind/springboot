@@ -11,12 +11,11 @@ import javax.validation.ValidatorFactory;
 import java.util.Locale;
 
 /**
- * 
- * @fileName ValidatorConfiguration.java
- * @package com.ancda.palmbaby.ancda.config.validator
- * @description spring boot 验证插件配置
- * @author yujl@ancda.com
- * @date 2017年6月23日 下午1:08:58
+ * @Title: ValidatorConfiguration
+ * @Package com.wind.webapi.validator
+ * @Description: spring boot 验证插件配置
+ * @author wind
+ * @date 2018/9/17 18:04
  * @version V1.0
  */
 @Aspect

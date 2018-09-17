@@ -10,11 +10,11 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * @fileName MD5Util
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description MD5加密工具类
- * @author yujl@ancda.com
- * @date 2018-04-25 15:41:18
+ * @Title: MD5Util
+ * @Package com.wind.common.util
+ * @Description: MD5加密工具类
+ * @author wind
+ * @date 2018/9/17 18:07
  * @version V1.0
  */
 public class MD5Util {
@@ -136,18 +136,7 @@ public class MD5Util {
     public static String getMD5AndSalt(String str, String salt) {
         return getMD5String(getMD5String(str).concat(salt));
     }
-      /*private static String bytesToHex(byte[] bytes) {
-        // 将MD5输出的二进制结果转换为小写的十六进制
-        StringBuilder result = new StringBuilder();
-        for (int i = 0; i < bytes.length; i++) {
-            String hex = Integer.toHexString(bytes[i] & 0xFF);
-            if (hex.length() == 1) {
-                result.append("0");
-            }
-            result.append(hex);
-        }
-        return result.toString();
-    }*/
+
 
     public static void main(String[] args) {
         System.out.println(getMD5String("123456"));

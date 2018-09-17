@@ -11,8 +11,8 @@ import java.security.spec.InvalidKeySpecException;
  * @Title: CryptoUtil
  * @Package com.wind.common.util
  * @Description: TODO
- * @author huanghy
- * @date 2018/9/14 15:34
+ * @author wind
+ * @date 2018/9/17 18:08
  * @version V1.0
  */
 public class CryptoUtil {
@@ -91,12 +91,13 @@ public class CryptoUtil {
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         // Decode the hash into its parameters
         String[] params = correctHash.split(":");
-        if (params == null || params.length != 2) {
+        if (params.length != 2) {
             return false;
         }
         int iterations = Integer.parseInt(params[ITERATION_INDEX]);
         byte[] salt = fromHex(params[SALT_INDEX]);
-        byte[] hash = fromHex(dbPassword);// fromHex(params[PBKDF2_INDEX]);
+        byte[] hash = fromHex(dbPassword);
+        // fromHex(params[PBKDF2_INDEX]);
         // Compute the hash of the provided password, using the same salt,
         // iteration count, and hash length
         byte[] testHash = pbkdf2(password, salt, iterations, hash.length);
@@ -114,7 +115,6 @@ public class CryptoUtil {
      *            the hash of the valid password
      * @return true if the password is correct, false if not
      */
-    @SuppressWarnings("unused")
     private static boolean validatePassword(char[] password, String correctHash)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         // Decode the hash into its parameters

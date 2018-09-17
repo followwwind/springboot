@@ -16,11 +16,11 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * @fileName ShutdownConfig
- * @package com.ancda.palmbaby.ancda.config.shutdown
- * @description Spring Boot2.X Tomcat容器优雅停机
- * @author yujl@ancda.com
- * @date 2018-07-30 20:03:29
+ * @Title: ShutdownConfig
+ * @Package com.wind.webapi.shutdown
+ * @Description: Spring Boot2.X Tomcat容器优雅停机
+ * @author wind
+ * @date 2018/9/17 17:44
  * @version V1.0
  */
 @Configuration

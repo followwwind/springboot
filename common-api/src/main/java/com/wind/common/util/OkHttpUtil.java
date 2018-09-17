@@ -12,11 +12,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @fileName OkHttpUtil
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description http请求工具类
- * @author huanghy
- * @date 2018-05-04 15:03:34
+ * @Title: OkHttpUtil
+ * @Package com.wind.common.util
+ * @Description: http请求工具类
+ * @author wind
+ * @date 2018/9/17 18:08
  * @version V1.0
  */
 public class OkHttpUtil {

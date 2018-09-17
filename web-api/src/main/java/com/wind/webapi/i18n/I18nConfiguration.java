@@ -11,12 +11,11 @@ import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import java.util.Locale;
 
 /**
- * 
- * @fileName I18nConfiguration.java
- * @package com.ancda.payservice.config.i18n
- * @description spring boot 国际化配置
- * @author yujl@ancda.com
- * @date 2017年6月23日 下午12:57:43
+ * @Title: I18nConfiguration
+ * @Package com.wind.webapi.i18n
+ * @Description: spring boot 国际化配置
+ * @author wind
+ * @date 2018/9/17 17:39
  * @version V1.0
  */
 @Configuration

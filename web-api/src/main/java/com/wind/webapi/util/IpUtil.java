@@ -1,8 +1,14 @@
 package com.wind.webapi.util;
 
-import cn.hutool.core.util.ArrayUtil;
-import com.ancda.palmbaby.hm.common.constant.Constants;
-import com.ancda.palmbaby.hm.common.utils.StringUtil;
+
+import com.wind.common.constant.Constants;
+import com.wind.common.util.StringUtil;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
 
 /**
  * @fileName IpUtil
@@ -27,21 +33,15 @@ public class IpUtil {
      * @param otherHeaderNames 其他自定义头文件
      * @return IP地址
      */
-    public static String getClientIP(javax.servlet.http.HttpServletRequest request, String... otherHeaderNames) {
+    public static String getClientIP(HttpServletRequest request, String... otherHeaderNames) {
         String[] headers = { "X-Forwarded-For", "X-Real-IP", "Proxy-Client-IP", "WL-Proxy-Client-IP", "HTTP_CLIENT_IP", "HTTP_X_FORWARDED_FOR" };
-        if (ArrayUtil.isNotEmpty(otherHeaderNames)) {
-            headers = ArrayUtil.addAll(headers, otherHeaderNames);
+        List<String> list = new ArrayList<>(Arrays.asList(headers));
+        if (otherHeaderNames != null && otherHeaderNames.length > 0) {
+            list.addAll(Arrays.asList(otherHeaderNames));
         }
 
-        String ip;
-        for (String header : headers) {
-            ip = request.getHeader(header);
-            if (!isUnknown(ip)) {
-                return getMultistageReverseProxyIp(ip);
-            }
-        }
-
-        ip = request.getRemoteAddr();
+        Optional<String> opt = list.stream().filter(header -> !isUnknown(request.getHeader(header))).findFirst();
+        String ip = opt.map(request::getHeader).orElse(request.getRemoteAddr());
         return getMultistageReverseProxyIp(ip);
     }
 

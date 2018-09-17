@@ -11,10 +11,10 @@ import java.util.List;
 
 /**
  * @Title: PhpUtil
- * @Package com.ancda.palmbaby.ancda.common.utils
- * @Description: TODO
- * @author huanghy
- * @date 2018/6/6 19:40
+ * @Package com.wind.common.util
+ * @Description: php序列化
+ * @author wind
+ * @date 2018/9/17 18:08
  * @version V1.0
  */
 public class PhpUtil {

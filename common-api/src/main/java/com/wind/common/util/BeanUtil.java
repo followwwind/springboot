@@ -3,11 +3,11 @@ package com.wind.common.util;
 import org.springframework.cglib.beans.BeanCopier;
 
 /**
- * @fileName BeanUtil
- * @package com.ancda.palmbaby.ancda.common.mappers
- * @description 字节码java bean拷贝
- * @author huanghy
- * @date 2018-05-17 10:56:13
+ * @Title: BeanUtil
+ * @Package com.wind.common.util
+ * @Description: 字节码java bean拷贝
+ * @author wind
+ * @date 2018/9/17 18:06
  * @version V1.0
  */
 public class BeanUtil {

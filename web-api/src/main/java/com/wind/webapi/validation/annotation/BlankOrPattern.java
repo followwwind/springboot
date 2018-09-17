@@ -13,12 +13,11 @@ import static java.lang.annotation.ElementType.FIELD;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 /**
- * 
- * @fileName BlankOrPattern.java
- * @package com.ancda.palmbaby.ancda.common.validation.annotation
- * @description 选填注解，不为空时必须满足正则表达式
- * @author yujl@ancda.com
- * @date 2017年6月23日 下午1:05:57
+ * @Title: BlankOrPattern
+ * @Package com.wind.webapi.validation.annotation
+ * @Description: 选填注解，不为空时必须满足正则表达式
+ * @author wind
+ * @date 2018/9/17 18:01
  * @version V1.0
  */
 @Target({ FIELD })

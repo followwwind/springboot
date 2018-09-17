@@ -12,12 +12,11 @@ import com.baidu.unbiz.fluentvalidator.validator.element.ValidatorElementList;
 import java.util.List;
 
 /**
- * 
- * @fileName CustomValidateCallback.java
- * @package com.ancda.palmbaby.ancda.callback
- * @description 参数检验回调类
- * @author yujl@ancda.com
- * @date 2017年6月23日 下午1:07:50
+ * @Title: CustomValidateCallback
+ * @Package com.wind.webapi.validator
+ * @Description: 参数检验回调类
+ * @author wind
+ * @date 2018/9/17 18:04
  * @version V1.0
  */
 public class CustomValidateCallback extends DefaultValidateCallback implements ValidateCallback {

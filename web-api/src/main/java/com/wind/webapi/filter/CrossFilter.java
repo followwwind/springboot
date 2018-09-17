@@ -17,12 +17,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**
- *
- * @fileName CrossFilter.java
- * @package com.jd.ofitpro.manage.api.filter
- * @description 跨域设置过滤器，由于SpringShiroFilter的顺序为1，此处为确保跨域设置以及i18n正确配置，将顺序设置为0
- * @author yujl@ancda.com
- * @date 2017年7月20日 上午9:44:06
+ * @Title: CrossFilter
+ * @Package com.wind.webapi.filter
+ * @Description: 跨域设置过滤器，由于SpringShiroFilter的顺序为1，此处为确保跨域设置以及i18n正确配置，将顺序设置为0
+ * @author wind
+ * @date 2018/9/17 17:41
  * @version V1.0
  */
 @Component

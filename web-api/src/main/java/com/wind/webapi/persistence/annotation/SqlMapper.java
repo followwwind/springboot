@@ -5,12 +5,11 @@ import org.springframework.stereotype.Component;
 import java.lang.annotation.*;
 
 /**
- * 
- * @fileName SqlMapper.java
- * @package com.ancda.palmbaby.ancda.common.persistence.annotation
- * @description Mybatis Mapper 注解
- * @author yujl@ancda.com
- * @date 2017年6月23日 上午11:09:22
+ * @Title: SqlMapper
+ * @Package com.wind.webapi.persistence.annotation
+ * @Description: Mybatis Mapper 注解
+ * @author wind
+ * @date 2018/9/17 17:43
  * @version V1.0
  */
 @Documented

@@ -18,11 +18,11 @@ import java.util.List;
 import java.util.TimeZone;
 
 /**
- * @fileName JsonUtil
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description json工具类
- * @author huanghy
- * @date 2018-05-03 15:39:05
+ * @Title: JsonUtil
+ * @Package com.wind.common.util
+ * @Description: json工具类
+ * @author wind
+ * @date 2018/9/17 18:07
  * @version V1.0
  */
 public class JsonUtil{

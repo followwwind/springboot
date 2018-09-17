@@ -94,9 +94,26 @@
             <artifactId>guava</artifactId>
         </dependency>
 
+        <!-- thumbnailator -->
         <dependency>
             <groupId>net.coobird</groupId>
             <artifactId>thumbnailator</artifactId>
+        </dependency>
+
+        <!-- zxing -->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>javase</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.bytedeco</groupId>
+            <artifactId>javacv-platform</artifactId>
         </dependency>
 
         <!-- okhttp -->
@@ -133,6 +150,8 @@
             <groupId>com.xk72</groupId>
             <artifactId>pherialize</artifactId>
         </dependency>
+
+
     </dependencies>
 
     <build>

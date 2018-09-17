@@ -3,22 +3,16 @@ package com.wind.webapi.exception;
 import com.wind.webapi.constants.HttpCode;
 
 /**
- * 
- * @fileName BaseException.java
- * @package com.ancda.palmbaby.ancda.common.exception
- * @description 异常基类
- * @author yujl@ancda.com
- * @date 2017年6月23日 上午11:18:32
+ * @Title: BaseException
+ * @Package com.wind.webapi.exception
+ * @Description: 异常基类
+ * @author wind
+ * @date 2018/9/17 17:41
  * @version V1.0
  */
 public abstract class BaseException extends RuntimeException {
 
-    /**
-     * 
-     * @author yujl@ancda.com
-     * @date 2017年4月24日
-     */
-    private static final long serialVersionUID = 6503055422698438458L;
+    private static final long serialVersionUID = 1L;
     
     protected HttpCode httpCode;
 

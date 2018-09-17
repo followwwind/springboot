@@ -15,9 +15,12 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
- * @author ThinkGem
- * @version 2014-4-15
+ * @Title: DateUtil
+ * @Package com.wind.common.util
+ * @Description: 日期工具类, 继承org.apache.commons.lang.time.DateUtils类
+ * @author wind
+ * @date 2018/9/17 18:06
+ * @version V1.0
  */
 public class DateUtil{
 

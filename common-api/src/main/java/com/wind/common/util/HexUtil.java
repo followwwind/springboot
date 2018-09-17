@@ -1,14 +1,15 @@
 package com.wind.common.util;
 
 /**
- * @fileName HexUtil
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description 进制转换工具类
- * @author yujl@ancda.com
- * @date 2018-04-25 15:42:02
+ * @Title: HexUtil
+ * @Package com.wind.common.util
+ * @Description: 进制转换工具类
+ * @author wind
+ * @date 2018/9/17 18:06
  * @version V1.0
  */
 public class HexUtil {
+
     private static final char[] DIGITS_LOWER = { '0', '1', '2', '3', '4', '5',
             '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f' };
     private static final char[] DIGITS_UPPER = { '0', '1', '2', '3', '4', '5',

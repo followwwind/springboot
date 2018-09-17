@@ -5,8 +5,12 @@ import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
 
 /**
- * id主键生成工具
+ * @Title: IdGenUtil
+ * @Package com.wind.common.util
+ * @Description: id主键生成工具
  * @author wind
+ * @date 2018/9/17 18:07
+ * @version V1.0
  */
 public class IdGenUtil {
 

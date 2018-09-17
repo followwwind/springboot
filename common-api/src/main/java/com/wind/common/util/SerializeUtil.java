@@ -6,8 +6,8 @@ import java.io.*;
  * @Title: SerializeUtil
  * @Package com.wind.common.util
  * @Description: 序列化工具类
- * @author huanghy
- * @date 2018/9/14 15:35
+ * @author wind
+ * @date 2018/9/17 18:09
  * @version V1.0
  */
 public class SerializeUtil {

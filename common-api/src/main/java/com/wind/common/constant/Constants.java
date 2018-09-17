@@ -4,8 +4,12 @@ import java.io.File;
 import java.math.BigDecimal;
 
 /**
- * 常量工具集
+ * @Title: Constants
+ * @Package com.wind.common.constant
+ * @Description: 常量工具集
  * @author wind
+ * @date 2018/9/17 18:06
+ * @version V1.0
  */
 public interface Constants {
 

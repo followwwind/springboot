@@ -6,13 +6,12 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
- * 
- * @fileName BaseDO.java
- * @package com.ancda.palmbaby.ancda.common.persistence
- * @description 基础DO实体类
- * @author yujl@ancda.com
- * @date 2017年6月25日 下午4:28:33
- * @version v1.0
+ * @Title: BaseDO
+ * @Package com.wind.webapi.persistence
+ * @Description: 基础DO实体类
+ * @author wind
+ * @date 2018/9/17 17:43
+ * @version V1.0
  */
 public abstract class BaseDO<T> implements Serializable {
 

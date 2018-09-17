@@ -6,11 +6,11 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
- * @fileName BaseQuery
- * @package com.ancda.palmbaby.ancda.common.persistence
- * @description 基础Query实体类
- * @author yujl@ancda.com
- * @date 2018-05-05 18:48:08
+ * @Title: BaseQuery
+ * @Package com.wind.webapi.persistence
+ * @Description: 基础Query实体类
+ * @author wind
+ * @date 2018/9/17 17:43
  * @version V1.0
  */
 public abstract class BaseQuery implements Serializable {

@@ -7,8 +7,12 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 import java.io.Serializable;
 
 /**
- * json返回结果集
+ * @Title: JsonResult
+ * @Package com.wind.webapi.message
+ * @Description: json返回结果集
  * @author wind
+ * @date 2018/9/17 17:43
+ * @version V1.0
  */
 public class JsonResult implements Serializable {
     /**

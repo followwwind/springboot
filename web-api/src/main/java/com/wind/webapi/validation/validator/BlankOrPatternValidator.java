@@ -10,11 +10,11 @@ import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
 /**
- * @fileName BlankOrPatternValidator
- * @package com.ancda.palmbaby.ancda.common.validation.validator
- * @description 选填注解验证器，不为空时必须满足正则表达式
- * @author yujl@ancda.com
- * @date 2018-04-21 16:19:29
+ * @Title: BlankOrPatternValidator
+ * @Package com.wind.webapi.validation.validator
+ * @Description: 选填注解验证器，不为空时必须满足正则表达式
+ * @author wind
+ * @date 2018/9/17 18:02
  * @version V1.0
  */
 public class BlankOrPatternValidator implements ConstraintValidator<BlankOrPattern, String> {
@@ -23,7 +23,7 @@ public class BlankOrPatternValidator implements ConstraintValidator<BlankOrPatte
 
     @Override
     public void initialize(BlankOrPattern parameters) {
-        Flag flags[] = parameters.flags();
+        Flag[] flags = parameters.flags();
         int intFlag = 0;
         for (Flag flag : flags) {
             intFlag = intFlag | flag.getValue();

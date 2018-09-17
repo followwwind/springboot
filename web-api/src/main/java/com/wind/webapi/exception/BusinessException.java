@@ -3,22 +3,16 @@ package com.wind.webapi.exception;
 import com.wind.webapi.constants.HttpCode;
 
 /**
- * 
- * @fileName BusinessException.java
- * @package com.ancda.palmbaby.ancda.common.exception
- * @description 业务异常
- * @author yujl@ancda.com
- * @date 2017年6月23日 上午11:18:39
+ * @Title: BusinessException
+ * @Package com.wind.webapi.exception
+ * @Description: 业务异常
+ * @author wind
+ * @date 2018/9/17 17:41
  * @version V1.0
  */
 public class BusinessException extends BaseException {
-    
-    /**
-     * 
-     * @author yujl@ancda.com
-     * @date 2017年4月24日
-     */
-    private static final long serialVersionUID = -8632520309363933123L;
+
+    private static final long serialVersionUID = 1L;
 
     public BusinessException() {
     }

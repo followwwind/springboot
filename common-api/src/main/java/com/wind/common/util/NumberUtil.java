@@ -3,11 +3,11 @@ package com.wind.common.util;
 import java.math.BigDecimal;
 
 /**
- * @fileName NumberUtil
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description 数字计算工具类
- * @author huanghy
- * @date 2018-05-14 21:08:30
+ * @Title: NumberUtil
+ * @Package com.wind.common.util
+ * @Description: 数字计算工具类
+ * @author wind
+ * @date 2018/9/17 18:08
  * @version V1.0
  */
 public class NumberUtil {

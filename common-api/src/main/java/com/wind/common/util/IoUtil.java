@@ -5,8 +5,12 @@ import java.io.*;
 import java.util.Arrays;
 
 /**
- * IO流工具类
+ * @Title: IoUtil
+ * @Package com.wind.common.util
+ * @Description: IO流工具类
  * @author wind
+ * @date 2018/9/17 18:07
+ * @version V1.0
  */
 public class IoUtil {
     /**

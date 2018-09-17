@@ -1,12 +1,11 @@
 package com.wind.webapi.validation.group;
 
 /**
- * 
- * @fileName Add.java
- * @package com.ancda.palmbaby.ancda.common.validation.group
- * @description 用于添加相关操作的校验组
- * @author yujl@ancda.com
- * @date 2017年6月23日 下午1:03:38
+ * @Title: Add
+ * @Package com.wind.webapi.validation.group
+ * @Description: 用于添加相关操作的校验组
+ * @author wind
+ * @date 2018/9/17 18:01
  * @version V1.0
  */
 public interface Add {

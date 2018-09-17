@@ -7,8 +7,12 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * 分页实体类
+ * @Title: Page
+ * @Package com.wind.webapi.persistence
+ * @Description: 分页实体类
  * @author wind
+ * @date 2018/9/17 17:44
+ * @version V1.0
  */
 public class Page<T> implements Serializable {
 

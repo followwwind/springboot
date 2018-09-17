@@ -13,10 +13,10 @@ import java.net.URL;
 
 /**
  * @Title: ImgUtil
- * @Package com.ancda.palmbaby.hm.common.utils
+ * @Package com.wind.common.util
  * @Description: img工具类
- * @author huanghy
- * @date 2018/9/5 13:47
+ * @author wind
+ * @date 2018/9/17 18:07
  * @version V1.0
  */
 public class ImgUtil {
@@ -155,6 +155,13 @@ public class ImgUtil {
         }
     }
 
+    /**
+     * 指定图片压缩大小
+     * @param source
+     * @param fileSize
+     * @param quality
+     * @param size
+     */
     public static void compress(String source, long fileSize, float quality, double size){
         File sourceFile = new File(source);
         long sourceSize = sourceFile.length() / 1024;

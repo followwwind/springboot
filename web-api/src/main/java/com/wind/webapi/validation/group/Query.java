@@ -1,12 +1,12 @@
 package com.wind.webapi.validation.group;
 
 /**
- * @author yujl@ancda.com
+ * @Title: Query
+ * @Package com.wind.webapi.validation.group
+ * @Description: 用于查询相关操作的校验组
+ * @author wind
+ * @date 2018/9/17 18:01
  * @version V1.0
- * @fileName Query
- * @package com.ancda.palmbaby.ancda.common.validation.group
- * @description 用于查询相关操作的校验组
- * @date 2017-06-27 14:04:17
  */
 public interface Query {
 }

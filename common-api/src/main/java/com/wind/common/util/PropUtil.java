@@ -6,8 +6,12 @@ import java.io.*;
 import java.util.*;
 
 /**
- * 解析properties文件工具类
+ * @Title: PropUtil
+ * @Package com.wind.common.util
+ * @Description: 解析properties文件工具类
  * @author wind
+ * @date 2018/9/17 18:08
+ * @version V1.0
  */
 public class PropUtil {
     /**

@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 
 /**
  * @Title: RegexUtil
- * @Package com.ancda.palmbaby.ancda.common.utils
+ * @Package com.wind.common.util
  * @Description: 正则表达式工具类
- * @author huanghy
- * @date 2018/7/20 13:44
+ * @author wind
+ * @date 2018/9/17 18:09
  * @version V1.0
  */
 public class RegexUtil {

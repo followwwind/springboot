@@ -12,10 +12,10 @@ import java.util.*;
 
 /**
  * @Title: RsaUtil
- * @Package com.ancda.payservice.util
- * @Description: TODO
- * @author huanghy
- * @date 2018/7/12 10:24
+ * @Package com.wind.common.util
+ * @Description: rsa密钥加密
+ * @author wind
+ * @date 2018/9/17 18:09
  * @version V1.0
  */
 public class RsaUtil {
