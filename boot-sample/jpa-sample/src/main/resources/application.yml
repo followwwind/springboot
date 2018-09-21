@@ -21,13 +21,16 @@ spring:
     database: mysql
     show-sql: true
     hibernate:
+      # Hibernate ddl auto (create, create-drop, update)
       ddl-auto: update
+      #[org.hibernate.cfg.ImprovedNamingStrategy #org.hibernate.cfg.DefaultNamingStrategy]
       naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
     properties:
       hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
+      #org.hibernate.dialect.MySQL5Dialect MyISAM引擎
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 logging:
-  config: classpath:config/log4j2.xml
+  config: classpath:log4j2.xml
 
 

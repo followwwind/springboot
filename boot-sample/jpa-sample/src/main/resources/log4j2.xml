@@ -78,6 +78,27 @@
                 <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
             </Filters>
         </RollingFile>
+
+        <RollingFile name="Debug" fileName="${LOG_HOME}/debug.log"
+                     filePattern="${LOG_HOME}/debug-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="DENY"
+                                 onMismatch="NEUTRAL" />
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT"
+                                 onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
     </Appenders>
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
     <Loggers>

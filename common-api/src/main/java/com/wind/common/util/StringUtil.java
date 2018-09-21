@@ -20,9 +20,8 @@ import java.util.StringTokenizer;
  */
 public class StringUtil{
 
-
     /**
-     * 字符串不为null且不是空字符串
+     * 判断空字符串
      * @param str
      * @return
      */

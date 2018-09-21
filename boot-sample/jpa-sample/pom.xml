@@ -6,11 +6,17 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
+
     <artifactId>jpa-sample</artifactId>
     <packaging>jar</packaging>
-    <name>boot-sample Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+
+
     <dependencies>
+        <dependency>
+            <groupId>com.wind</groupId>
+            <artifactId>web-api</artifactId>
+            <version>${web-api.version}</version>
+        </dependency>
 
         <!-- spring boot begin -->
         <dependency>
@@ -45,6 +51,17 @@
             <scope>test</scope>
         </dependency>
         <!-- spring boot end -->
+
+        <!-- swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>mysql</groupId>

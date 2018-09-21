@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2018/9/17 17:44
  * @version V1.0
  */
-@Configuration
+//@Configuration
 public class ShutdownConfig {
 	
 	/**

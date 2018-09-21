@@ -1,4 +1,4 @@
-package com.wind.sample.entity;
+package com.wind.sample.entity.po;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
@@ -19,29 +19,37 @@ public class UserInfo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
-    @Column(length=50, nullable=false)
+    @Column(name = "user_id", columnDefinition = "varchar(32) comment 'userId'", unique = true)
+    private String userId;
+
+    @Column(length = 50, nullable = false)
     private String username;
 
-    @Column(name="password", columnDefinition = "varchar(64) comment '密码'")
+    @Column(name = "password", columnDefinition = "varchar(64) comment '密码'")
     private String password;
 
-    private int age;
+    private Integer age;
 
-    private int type;
+    private Integer type;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
-    public UserInfo() {
+    public Long getId() {
+        return id;
     }
 
-    public Long getUserId() {
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Long userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
@@ -61,19 +69,19 @@ public class UserInfo implements Serializable {
         this.password = password;
     }
 
-    public int getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
-    public int getType() {
+    public Integer getType() {
         return type;
     }
 
-    public void setType(int type) {
+    public void setType(Integer type) {
         this.type = type;
     }
 
@@ -83,17 +91,5 @@ public class UserInfo implements Serializable {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
-    }
-
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", age=" + age +
-                ", type=" + type +
-                ", createTime=" + createTime +
-                '}';
     }
 }

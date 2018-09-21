@@ -1,6 +1,6 @@
 package com.wind.sample.dao;
 
-import com.wind.sample.entity.UserInfo;
+import com.wind.sample.entity.po.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
