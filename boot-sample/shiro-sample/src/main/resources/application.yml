@@ -1,0 +1,16 @@
+server:
+  port: 8787
+#  servletPath: /api # 访问根路径，默认"/"
+  tomcat:
+#    uri-encoding: UTF-8 # URI编码，默认"ISO-8859-1"
+    max-threads: 300
+    max-connections: 200
+    accept-count: 100
+    basedir: /data/webroot/shiro-sample
+    accesslog:
+      enabled: true
+
+logging:
+  config: classpath:log4j2.xml
+
+

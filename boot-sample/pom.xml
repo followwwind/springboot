@@ -19,6 +19,7 @@
         <module>webservices-sample</module>
         <module>websocket-sample</module>
         <module>webflux-sample</module>
+        <module>shiro-sample</module>
     </modules>
 
 </project>

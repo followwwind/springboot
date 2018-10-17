@@ -10,7 +10,8 @@
 		<module>common-api</module>
 		<module>web-api</module>
 		<module>boot-sample</module>
-	</modules>
+        <module>shiro-api</module>
+    </modules>
 	<packaging>pom</packaging>
 
 	<name>springboot</name>
@@ -59,6 +60,7 @@
 		<thumbnailator.version>0.4.8</thumbnailator.version>
 		<javacv.version>1.4.2</javacv.version>
 		<zxing.version>3.3.0</zxing.version>
+		<jjwt.version>0.9.0</jjwt.version>
 
 		<swagger.version>2.9.0</swagger.version>
 		<xstream.version>1.4.7</xstream.version>
@@ -72,6 +74,7 @@
 		<!-- module version common -->
 		<common-api.version>${project.version}</common-api.version>
 		<web-api.version>${project.version}</web-api.version>
+		<shiro-api.version>${project.version}</shiro-api.version>
 	</properties>
 
 	<dependencyManagement>
@@ -122,6 +125,28 @@
 				<version>${spring-boot-admin-starter-client.version}</version>
 			</dependency>
 			<!-- spring-boot end -->
+
+			<!-- shiro begin -->
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-core</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.shiro</groupId>
+				<artifactId>shiro-spring-boot-web-starter</artifactId>
+				<version>${shiro.version}</version>
+			</dependency>
+			<!-- shiro end -->
+
+			<!-- json web token utils begin -->
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt</artifactId>
+				<version>${jjwt.version}</version>
+			</dependency>
+			<!-- json web token utils end -->
 
 			<!--commons utils begin -->
 			<dependency>

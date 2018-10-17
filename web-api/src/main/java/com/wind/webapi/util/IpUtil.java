@@ -11,11 +11,11 @@ import java.util.List;
 import java.util.Optional;
 
 /**
- * @fileName IpUtil
- * @package com.ancda.palmbaby.ancda.common.utils
- * @description IP地址工具类
- * @author Frepr
- * @date 2018-04-23 14:46:58
+ * @Title: IpUtil
+ * @Package com.wind.webapi.util
+ * @Description: IP地址工具类
+ * @author wind
+ * @date 2018/10/17 8:32
  * @version V1.0
  */
 public class IpUtil {

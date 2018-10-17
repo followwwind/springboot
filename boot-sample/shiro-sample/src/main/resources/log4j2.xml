@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出 -->
+<!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身，设置间隔秒数 -->
+<configuration status="OFF" monitorInterval="60">
+    <!-- 定义引用属性 -->
+    <Properties>
+        <property name="Log_Pattern">[%-5level] %d{yyyy-MM-dd HH:mm:ss,SSS} %-1X{requestId} %-1X{instanceId} %-1X{ip} %-1X{userId} %class - %msg%n</property>
+        <property name="LOG_HOME">/data/shiro-sample/logs</property>
+        <property name="LOG_LEVEL">INFO</property><!-- 日志输出级别 -->
+    </Properties>
+
+    <!--定义所有的appender -->
+    <Appenders>
+        <!--这个输出控制台的配置 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch） -->
+            <ThresholdFilter level="trace" onMatch="ACCEPT" onMismatch="DENY" />
+            <!--输出日志的格式 -->
+            <!-- <PatternLayout pattern="%highlight{[%-5level] %d{yyyy-MM-dd HH:mm:ss,SSS} %class - %msg%n}{FATAL=Bright Magenta, ERROR=Bright Red, WARN=Yellow, INFO=Green, DEBUG=Bright Blue, TRACE=Black}" /> -->
+            <PatternLayout pattern="${Log_Pattern}" />
+        </Console>
+
+        <!-- 重要的是，如果有多个ThresholdFilter，那么Filters是必须的，同时在Filters中，首先要过滤不符合的日志级别，把不需要的首先DENY掉，然后再ACCEPT需要的日志级别，这个次序不能搞颠倒。 -->
+        <!-- 打印出所有的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档 -->
+        <!-- 按月生成归档日志，可以使用 filePattern="logs/$${date:yyyy-MM}/app-%d{MM-dd-yyyy}-%i.log.gz" -->
+        <!-- 显示error级别的信息 -->
+        <RollingFile name="Error" fileName="${LOG_HOME}/error.log"
+                     filePattern="${LOG_HOME}/error-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+            <Filters>
+                <ThresholdFilter level="FATAL" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name="Warn" fileName="${LOG_HOME}/warn.log"
+                     filePattern="${LOG_HOME}/warn-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+            <Filters>
+                <ThresholdFilter level="ERROR" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name="Info" fileName="${LOG_HOME}/info.log"
+                     filePattern="${LOG_HOME}/info-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true" interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+            <Filters>
+                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL" />
+                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+
+        <RollingFile name="Debug" fileName="${LOG_HOME}/debug.log"
+                     filePattern="${LOG_HOME}/debug-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+            <Filters>
+                <ThresholdFilter level="INFO" onMatch="DENY"
+                                 onMismatch="NEUTRAL" />
+                <ThresholdFilter level="DEBUG" onMatch="ACCEPT"
+                                 onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+    </Appenders>
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
+    <Loggers>
+        <!--建立一个默认的root的logger，需要在root的level中指定输出的级别， -->
+        <Root level="${LOG_LEVEL}">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="Error" />
+            <AppenderRef ref="Warn" />
+            <AppenderRef ref="Info" />
+            <AppenderRef ref="Debug" />
+        </Root>
+    </Loggers>
+</configuration>

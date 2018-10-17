@@ -116,6 +116,13 @@
             <artifactId>javacv-platform</artifactId>
         </dependency>
 
+        <!-- json web token utils begin -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+        </dependency>
+        <!-- json web token utils end -->
+
         <!-- okhttp -->
         <dependency>
             <groupId>com.squareup.okhttp3</groupId>
