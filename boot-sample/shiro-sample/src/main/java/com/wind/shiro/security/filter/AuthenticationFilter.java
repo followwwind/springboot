@@ -34,7 +34,7 @@ import java.util.regex.Pattern;
  */
 public class AuthenticationFilter extends AccessControlFilter {
 
-    private Logger logger = LoggerFactory.getLogger(AuthenticationFilter.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     private TokenManager tokenManager;
 

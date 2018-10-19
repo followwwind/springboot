@@ -99,6 +99,21 @@
                                  onMismatch="DENY" />
             </Filters>
         </RollingFile>
+
+        <RollingFile name="Speed" fileName="${LOG_HOME}/speed.log"
+                     filePattern="${LOG_HOME}/speed-%d{yyyy-MM-dd}.log.gz">
+            <PatternLayout pattern="${Log_Pattern}" />
+            <Policies>
+                <TimeBasedTriggeringPolicy modulate="true"
+                                           interval="1" />
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth="3">
+                    <IfFileName glob="*.log.gz" />
+                    <IfLastModified age="30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
     </Appenders>
     <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效 -->
     <Loggers>
@@ -110,5 +125,29 @@
             <AppenderRef ref="Info" />
             <AppenderRef ref="Debug" />
         </Root>
+
+        <!-- 性能日志 -->
+        <Logger name="speedLog" level="INFO" includeLocation="true" additivity="false">
+            <AppenderRef ref="Speed"/>
+        </Logger>
+
+        <!--过滤掉spring和hibernate的一些无用的debug信息-->
+        <Logger name="org.springframework" level="info"/>
+        <!-- MyBatis Loggers -->
+        <Logger name="org.mybatis" level="info"/>
+        <Logger name="org.apache.ibatis" level="info"/>
+
+        <Logger name="executableSql" level="info" />
+        <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
+        <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
+        <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />
+        <logger name="org.apache.sshd.common.util.SecurityUtils" level="warn"/>
+        <Logger name="org.apache.tomcat.util.net.NioSelectorPool" level="warn" />
+        <Logger name="org.crsh.plugin" level="warn" />
+        <logger name="org.crsh.ssh" level="warn"/>
+        <Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
+        <Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
+        <logger name="org.springframework.boot.actuate.autoconfigure.CrshAutoConfiguration" level="warn"/>
+        <logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
     </Loggers>
 </configuration>

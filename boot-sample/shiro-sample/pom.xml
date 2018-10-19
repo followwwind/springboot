@@ -12,13 +12,13 @@
     <artifactId>shiro-sample</artifactId>
 
     <dependencies>
-        <!-- ancda lib begin -->
+        <!-- web lib begin -->
         <dependency>
             <groupId>com.wind</groupId>
             <artifactId>web-api</artifactId>
             <version>${web-api.version}</version>
         </dependency>
-        <!-- ancda lib end -->
+        <!-- web lib end -->
 
         <!-- shiro begin -->
         <dependency>

@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ControllerExceptionHandler {
 
-    private Logger logger = LoggerFactory.getLogger(ControllerExceptionHandler.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * shiro权限异常处理

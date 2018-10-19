@@ -18,7 +18,7 @@ import org.springframework.data.redis.core.RedisTemplate;
  */
 public class RedisCacheManager implements CacheManager {
 
-    private Logger logger = LoggerFactory.getLogger(RedisCacheManager.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;

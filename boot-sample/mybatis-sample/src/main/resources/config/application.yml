@@ -1,0 +1,180 @@
+# ===================================================================
+# Spring Boot 标准环境配置
+# ===================================================================
+
+# 内嵌服务器配置，默认使用Tomcat作为内嵌WebServer(其他可选Jetty、Undertow)
+server:
+    port: 8181 # 启动端口，默认8080
+    #servletPath: /service # 访问根路径，默认"/"
+    tomcat:
+        uri-encoding: UTF-8 # URI编码，默认"ISO-8859-1"
+        max-threads: 300
+        max-connections: 200
+        accept-count: 100
+        basedir: /data/webroot/mybatis-sample
+        accesslog:
+          enabled: true
+    servlet:
+      session:
+          timeout:
+              seconds: 1800 # 会话超时时间，默认30分钟
+          cookie:
+              http-only: true  # 开启HttpOnly防止js脚本读取cookie信息和XSS 攻击
+
+## 关闭Spring Security
+#security:
+#    basic:
+#        enabled: false
+
+# 日志相关设置
+logging:
+  config: classpath:config/log4j2.xml
+
+# mybatis相关设置
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  mapperLocations: classpath:mapper/*.xml
+
+# 分页插件相关设置      
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+# spring相关设置 
+spring:
+    application:
+        name: mybatis
+        version: 1.0.0
+    profiles:
+        active: dev
+    aop:
+        proxy-target-class: true
+    jackson:
+        # 序列化日期时以timestamps输出(例如true=1413800730456, false=2014-10-20T10:26:06.604+0000)
+        serialization.write_dates_as_timestamps: true
+        # 使用自定义 date-format 需禁用 write_dates_as_timestamps 才会生效
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        serialization.fail_on_empty_beans: false
+    messages:
+        #设置国际化配置文件存放在classpath:/i18n目录下
+        basename: i18n/messages
+        #设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1
+        cache-duration:
+          seconds: 3600
+    mvc:
+        favicon:
+            enabled: false
+#        throw-exception-if-no-constant-found: true
+#    resources:
+#        add-mappings: true
+#    redis:
+#        timeout: 15000
+#        lettuce:
+#            pool:
+#                max-active: 8 # 最大连接数量，默认8，能够同时建立的最大连接数
+#                max-idle: 8 # 最大空闲连接数量，默认8，空闲连接数大于maxIdle时，将进行回收
+#                max-wait: 1000 # 最大阻塞等待时间，默认-1
+#                min-idle: 5 # 最小空闲数，默认0，低于minIdle时，将创建新的连接
+    # spring启动banner设置
+    banner:
+        charset: UTF-8
+        location: classpath:config/banner.txt
+    servlet:
+        multipart:
+          enabled: true
+          file-size-threshold: 0 # 文件大小阈值，当大于这个阈值时将写入到磁盘，否则在内存中。默认值为0
+          location:
+          max-file-size: 100MB # 文件的最大大小
+          max-request-size: 1024MB # 单次最大请求大小
+    freemarker:
+        checkTemplateLocation: false
+    datasource:
+        druid:
+            initial-size: 5 # 首次物理初始化大小，默认0
+            min-idle: 5 # 连接池最小数量，默认0
+            max-active: 20  # 连接池最大数量，默认8
+            max-wait: 60000 # 获取连接时最大等待时间，默认-1，单位毫秒
+            time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+            validation-query: SELECT 1 FROM DUAL  # 检查数据库连接语句
+            validation-query-timeout: 10000
+            test-on-borrow: true
+            test-on-return: false
+            test-while-idle: true
+            pool-prepared-statements: false
+            max-pool-prepared-statement-per-connection-size: 20
+
+
+
+
+
+
+# ===================================================================
+# Spring Boot 开发环境配置
+# 开启监控、热加载功能
+# ===================================================================
+# Druid 监控配置，用于监控SQL执行信息，后台登录地址"/druid/"
+# druid连接池相关设置
+#druid:
+#    filters: stat,wall,slf4j  # 配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙
+#    connection-properties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000;
+#    initial-size: 5 # 首次物理初始化大小，默认0
+#    min-idle: 5 # 连接池最小数量，默认0
+#    max-active: 20  # 连接池最大数量，默认8
+#    max-wait: 60000 # 获取连接时最大等待时间，默认-1，单位毫秒
+#    time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+#    min-evictable-idle-time-millis: 300000
+#    validation-query: SELECT 1 FROM DUAL  # 检查数据库连接语句
+#    validation-query-timeout: 10000
+#    test-on-borrow: true
+#    test-on-return: false
+#    test-while-idle: true
+#    pool-prepared-statements: false
+#    max-pool-prepared-statement-per-connection-size: 20
+#    monitor:
+#          enabled: enabled # 配置此属性Monitor才生效
+#          druid-stat-view: /druid/*
+#          druid-web-stat-filter: /*
+#          allow:
+#          login-username: ancda
+#          login-password: ancda.com100s
+#          sessionStatEnable: false
+#          exclusions: '*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*'
+#          reset-enable: false
+#          profileEnable: true
+
+# spring-boot-starter-actuator 提供的监控功能，可查看应用运行信息
+management:
+    server:
+      port: 8084
+      address: 127.0.0.1
+      servlet:
+        context-path: /management
+    endpoints:
+        web:
+          base-path: /
+          exposure:
+            include: '*'
+
+
+
+# 由于与spring data redis冲突，从reids读取反序列对象时，类型转换会出现ClassCastException，此处禁用devtools
+# Spring 开发工具包，可实现代码热加载功能
+#spring:
+#    devtools:
+        # 热加载，使用IDEA的话，做如下设置才会生效
+        # Setting -> Compiler -> 勾选 Build project automatically
+        # Shift + Ctrl + Alt + /，选择 Registry，勾选 compiler.automake.allow.when.app.running
+        # 然后重启 IDEA 后
+        # 修改类 -> 保存：应用会重启
+        # 修改配置文件 -> 保存：应用会重启
+        # 修改页面 -> 保存：应用不会重启，但会重新加载，页面会刷新，原理是将 spring.thymeleaf.cache 设为 false
+#        restart:
+#            enabled: true
+        # 当资源改变时，浏览器刷新，需要配合浏览器插件使用，下载地址如下
+        # http://livereload.com/extensions/ 或 http://download.csdn.net/detail/qq_32427791/9375382
+#        livereload:
+#            enabled: true

@@ -13,24 +13,13 @@
 
     <dependencies>
 
-        <!-- ancda lib begin -->
+        <!-- common lib begin -->
         <dependency>
             <groupId>com.wind</groupId>
             <artifactId>common-api</artifactId>
             <version>${common-api.version}</version>
         </dependency>
-        <!-- ancda lib end -->
-
-        <!--<dependency>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-actuator</artifactId>-->
-        <!--<exclusions>-->
-        <!--<exclusion>-->
-        <!--<groupId>org.springframework.boot</groupId>-->
-        <!--<artifactId>spring-boot-starter-logging</artifactId>-->
-        <!--</exclusion>-->
-        <!--</exclusions>-->
-        <!--</dependency>-->
+        <!-- common lib end -->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -70,12 +59,12 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- paginator helper begin -->
+        <!-- pagehelper helper begin -->
         <dependency>
             <groupId>com.github.pagehelper</groupId>
             <artifactId>pagehelper</artifactId>
         </dependency>
-        <!-- paginator helper begin -->
+        <!-- pagehelper helper begin -->
 
         <!-- validator utils begin -->
         <dependency>

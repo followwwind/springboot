@@ -22,7 +22,7 @@ public class RedisCache<K, V> implements Cache<K, V>, Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private Logger logger = LoggerFactory.getLogger(RedisCache.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     /**
      * redis实例

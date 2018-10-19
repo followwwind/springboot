@@ -36,7 +36,7 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/api")
 public class LoginController {
 
-    private Logger logger = LoggerFactory.getLogger(LoginController.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private TokenManager tokenManager;

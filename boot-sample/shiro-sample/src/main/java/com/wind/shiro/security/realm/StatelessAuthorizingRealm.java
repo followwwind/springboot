@@ -30,7 +30,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  */
 public class StatelessAuthorizingRealm extends AuthorizingRealm {
 
-    private Logger logger = LoggerFactory.getLogger(StatelessAuthorizingRealm.class);
+    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     private TokenManager tokenManager;
