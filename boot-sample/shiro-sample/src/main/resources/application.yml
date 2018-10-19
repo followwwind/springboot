@@ -10,6 +10,84 @@ server:
     accesslog:
       enabled: true
 
+# spring相关设置
+spring:
+    application:
+        name: shiro
+        version: 1.0.0
+#    profiles:
+#        active: dev
+    aop:
+        proxy-target-class: true
+    jackson:
+        # 序列化日期时以timestamps输出(例如true=1413800730456, false=2014-10-20T10:26:06.604+0000)
+        serialization.write_dates_as_timestamps: true
+        # 使用自定义 date-format 需禁用 write_dates_as_timestamps 才会生效
+        date-format: yyyy-MM-dd HH:mm:ss
+        time-zone: GMT+8
+        serialization.fail_on_empty_beans: false
+    messages:
+        #设置国际化配置文件存放在classpath:/i18n目录下
+        basename: i18n/messages
+        #设定加载的资源文件缓存失效时间，-1的话为永不过期，默认为-1
+        cache-duration:
+          seconds: 3600
+    mvc:
+        favicon:
+            enabled: false
+#        throw-exception-if-no-constant-found: true
+#    resources:
+#        add-mappings: true
+    redis:
+        host: 192.168.5.221
+        port: 6379
+        password: 123456
+        database: 2
+        timeout: 15000
+        lettuce:
+            pool:
+                max-active: 8 # 最大连接数量，默认8，能够同时建立的最大连接数
+                max-idle: 8 # 最大空闲连接数量，默认8，空闲连接数大于maxIdle时，将进行回收
+                max-wait: 1000 # 最大阻塞等待时间，默认-1
+                min-idle: 5 # 最小空闲数，默认0，低于minIdle时，将创建新的连接
+    # spring启动banner设置
+    banner:
+        charset: UTF-8
+        location: classpath:config/banner.txt
+    servlet:
+        multipart:
+          enabled: true
+          file-size-threshold: 0 # 文件大小阈值，当大于这个阈值时将写入到磁盘，否则在内存中。默认值为0
+          location:
+          max-file-size: 100MB # 文件的最大大小
+          max-request-size: 1024MB # 单次最大请求大小
+    freemarker:
+        checkTemplateLocation: false
+    datasource:
+        druid:
+            initial-size: 5 # 首次物理初始化大小，默认0
+            min-idle: 5 # 连接池最小数量，默认0
+            max-active: 20  # 连接池最大数量，默认8
+            max-wait: 60000 # 获取连接时最大等待时间，默认-1，单位毫秒
+            time-between-eviction-runs-millis: 60000  # 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
+            min-evictable-idle-time-millis: 300000
+            validation-query: SELECT 1 FROM DUAL  # 检查数据库连接语句
+            validation-query-timeout: 10000
+            test-on-borrow: true
+            test-on-return: false
+            test-while-idle: true
+            pool-prepared-statements: false
+            max-pool-prepared-statement-per-connection-size: 20
+
+# shiro权限相关设置
+shiro:
+  enabled: true
+  loginUrl: /api/login
+  web:
+      enabled: true
+  annotations:
+      enabled: false
+      # 设置为false，不使用shiro annotations，如果启用shiro注解，会默认创建DefaultAdvisorAutoProxyCreator，此处会与spring不兼容导致二次代理，在使用shiro注解时controller会失效
 logging:
   config: classpath:log4j2.xml
 

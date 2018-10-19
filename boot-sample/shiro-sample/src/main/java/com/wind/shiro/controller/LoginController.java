@@ -2,17 +2,15 @@ package com.wind.shiro.controller;
 
 import com.wind.common.util.RegexUtil;
 import com.wind.common.util.StringUtil;
-import com.wind.shiro.entity.Login;
+import com.wind.shiro.entity.LoginQ;
 import com.wind.shiro.entity.LoginType;
-import com.wind.shiroapi.realm.StatelessAuthorizingRealm;
-import com.wind.shiroapi.subject.Principal;
-import com.wind.shiroapi.token.FormAuthenticationToken;
-import com.wind.shiroapi.token.StatelessAuthenticationToken;
-import com.wind.shiroapi.token.TokenManager;
-import com.wind.shiroapi.util.SecurityUtil;
+import com.wind.shiro.security.subject.Principal;
+import com.wind.shiro.security.token.FormAuthenticationToken;
+import com.wind.shiro.security.token.StatelessAuthenticationToken;
+import com.wind.shiro.security.token.TokenManager;
+import com.wind.shiro.security.util.SecurityUtil;
 import com.wind.webapi.constants.HttpCode;
 import com.wind.webapi.message.JsonResult;
-import com.wind.webapi.util.ServletUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -44,7 +42,7 @@ public class LoginController {
     private TokenManager tokenManager;
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public JsonResult login(HttpServletResponse response, @RequestBody Login loginQ) {
+    public JsonResult login(HttpServletResponse response, @RequestBody LoginQ loginQ) {
         if (loginQ == null) {
             return new JsonResult(HttpCode.BAD_REQUEST);
         }

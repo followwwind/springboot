@@ -10,7 +10,6 @@
 		<module>common-api</module>
 		<module>web-api</module>
 		<module>boot-sample</module>
-        <module>shiro-api</module>
     </modules>
 	<packaging>pom</packaging>
 
@@ -74,7 +73,6 @@
 		<!-- module version common -->
 		<common-api.version>${project.version}</common-api.version>
 		<web-api.version>${project.version}</web-api.version>
-		<shiro-api.version>${project.version}</shiro-api.version>
 	</properties>
 
 	<dependencyManagement>

@@ -1,14 +1,12 @@
 package com.wind.shiro.config;
 
-import com.wind.shiro.auth.AuthManagerImpl;
-import com.wind.shiroapi.authc.CustomFirstSuccessfulStrategy;
-import com.wind.shiroapi.cache.redis.RedisCacheManager;
-import com.wind.shiroapi.filter.AuthenticationFilter;
-import com.wind.shiroapi.mgt.StatelessSubjectFactory;
-import com.wind.shiroapi.realm.AuthManager;
-import com.wind.shiroapi.realm.StatelessAuthorizingRealm;
-import com.wind.shiroapi.token.TokenManager;
-import com.wind.shiroapi.token.impl.SimpleJwtTokenManagerImpl;
+import com.wind.shiro.security.authc.CustomFirstSuccessfulStrategy;
+import com.wind.shiro.security.cache.redis.RedisCacheManager;
+import com.wind.shiro.security.filter.AuthenticationFilter;
+import com.wind.shiro.security.mgt.StatelessSubjectFactory;
+import com.wind.shiro.security.realm.StatelessAuthorizingRealm;
+import com.wind.shiro.security.token.TokenManager;
+import com.wind.shiro.security.token.impl.SimpleJwtTokenManagerImpl;
 import org.apache.shiro.authc.Authenticator;
 import org.apache.shiro.authc.pam.AuthenticationStrategy;
 import org.apache.shiro.authc.pam.ModularRealmAuthenticator;
@@ -30,7 +28,6 @@ import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
 import javax.servlet.DispatcherType;
 import javax.servlet.Filter;
 import java.util.ArrayList;
@@ -59,34 +56,23 @@ public class ShiroConfiguration {
     @Value("#{ @environment['shiro.unauthorizedUrl'] ?: null }")
     private String unauthorizedUrl;
 
-    private final String STATELESS_AUTHC = "statelessAuthc";
-
-    @Value("${jwt.issuer:''}")
-    private String issuer;
-
-    @Value("${jwt.secret:''}")
-    private String secret;
-
-    @Value("${jwt.token:'X-API-TOKEN'}")
-    private String tokenHeader;
-
-    @Value("${jwt.suffix:''}")
-    private String tokenSuffix;
+    private final String STATELESS_AUTH = "statelessAuth";
 
     @Bean
     public ShiroFilterChainDefinition shiroFilterChainDefinition() {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
+        chainDefinition.addPathDefinition("/api/login", "anon");
         chainDefinition.addPathDefinition("/api/hello/sayHello", "anon");
-        chainDefinition.addPathDefinition("/api/**", STATELESS_AUTHC);
+        chainDefinition.addPathDefinition("/api/**", STATELESS_AUTH);
         return chainDefinition;
     }
 
     @Bean
     public DefaultWebSecurityManager securityManager() {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
-        securityManager.setAuthenticator(authenticator());
-        // 设置realm
-        securityManager.setRealms(realms());
+//        securityManager.setAuthenticator(authenticator());
+//        securityManager.setRealms(realms());
+        securityManager.setRealm(statelessRealm());
         // 设置缓存管理器
         securityManager.setCacheManager(cacheManager());
         securityManager.setSessionManager(sessionManager());
@@ -143,12 +129,7 @@ public class ShiroConfiguration {
 
     @Bean
     public TokenManager tokenManager() {
-        return new SimpleJwtTokenManagerImpl(issuer, secret);
-    }
-
-    @Bean
-    public AuthManager authManager(){
-        return new AuthManagerImpl();
+        return new SimpleJwtTokenManagerImpl();
     }
 
     @Bean
@@ -156,7 +137,7 @@ public class ShiroConfiguration {
                                                          ShiroFilterChainDefinition shiroFilterChainDefinition) {
         ShiroFilterFactoryBean filterFactoryBean = new ShiroFilterFactoryBean();
         Map<String, Filter> filters = new LinkedHashMap<>();
-        filters.put(STATELESS_AUTHC, new AuthenticationFilter(tokenManager(), tokenHeader, tokenSuffix));
+        filters.put(STATELESS_AUTH, new AuthenticationFilter(tokenManager()));
         filterFactoryBean.setFilters(filters);
         filterFactoryBean.setLoginUrl(loginUrl);
         filterFactoryBean.setSuccessUrl(successUrl);
@@ -167,13 +148,14 @@ public class ShiroConfiguration {
     }
 
     /**
-     * shiroFilter过滤器
+     * shiro过滤器
      * @param shiroFilterFactoryBean
      * @return
      * @throws Exception
      */
     @Bean
-    public FilterRegistrationBean filterRegistrationBean(ShiroFilterFactoryBean shiroFilterFactoryBean) throws Exception {
+    public FilterRegistrationBean filterRegistrationBean(ShiroFilterFactoryBean shiroFilterFactoryBean)
+            throws Exception {
         FilterRegistrationBean filterRegistration = new FilterRegistrationBean();
         AbstractShiroFilter filter = (AbstractShiroFilter) shiroFilterFactoryBean.getObject();
         if(filter != null){
@@ -221,7 +203,7 @@ public class ShiroConfiguration {
      * @return
      */
     @Bean
-    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
+    public static LifecycleBeanPostProcessor lifecycleBeanPostProcessor(){
         return new LifecycleBeanPostProcessor();
     }
 

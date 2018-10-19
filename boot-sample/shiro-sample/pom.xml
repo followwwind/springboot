@@ -15,9 +15,31 @@
         <!-- ancda lib begin -->
         <dependency>
             <groupId>com.wind</groupId>
-            <artifactId>shiro-api</artifactId>
-            <version>${shiro-api.version}</version>
+            <artifactId>web-api</artifactId>
+            <version>${web-api.version}</version>
         </dependency>
         <!-- ancda lib end -->
+
+        <!-- shiro begin -->
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.shiro</groupId>
+            <artifactId>shiro-spring-boot-web-starter</artifactId>
+        </dependency>
+        <!-- shiro end -->
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-pool2</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
     </dependencies>
 </project>
